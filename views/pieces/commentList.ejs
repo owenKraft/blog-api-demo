@@ -1,0 +1,20 @@
+<div class="comment-list">
+    <% if (locals.comments.length > 0) { %>
+        <% comments.forEach((comment) => { %>
+            <div class="comment-wrapper">
+                <img class="anon-user-img" src="/images/anonUser.png">
+                
+                <div class="comment-info">
+                    <p class="comment-author">
+                        <%= comment.author.username %> <span><%= comment.timestamp %></span>
+                    </p>
+                    <p class="comment-text">
+                        <%= comment.text %>
+                    </p>
+                </div>
+
+            </div>
+
+        <% }) %>
+    <% } %>
+</div>

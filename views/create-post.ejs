@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./pieces/head') %>
+    <body>
+        <%- include('./pieces/nav', {token: token})%>
+
+        <div class="container">
+            <h1>
+                Create post
+            </h1>
+
+            <form action="" method="POST">
+                <div class="form-pair">
+                    <label for="title">
+                        Title
+                    </label>
+            
+                    <br>
+            
+                    <input name="title" type="text" class="form-wide" required/>
+                </div>
+        
+                <div class="form-pair">
+                    <label for="description">
+                        Description
+                    </label>
+        
+                    <br>
+        
+                    <!-- <input name="body" type="text" /> -->
+                    <textarea name="description" class="form-wide" rows="4" required></textarea>
+                </div>
+
+                <div class="form-pair">
+                    <label for="body">
+                        Body
+                    </label>
+        
+                    <br>
+        
+                    <!-- <input name="body" type="text" /> -->
+                    <textarea name="body" class="form-wide" rows="10" required></textarea>
+                </div>
+
+                <div class="form-pair">
+                    <label for="image">
+                        Image URL
+                    </label>
+            
+                    <br>
+            
+                    <input name="image" type="text" class="form-wide" required/>
+                </div>
+        
+                <button class="blue-button">
+                    Submit post
+                </button>
+            </form>
+        </div>
+    </body>
+</html>

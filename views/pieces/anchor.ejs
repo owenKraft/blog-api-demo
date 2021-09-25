@@ -1,0 +1,9 @@
+<div class="anchor">
+    <div class="container">
+        <% if(locals.token) {%>
+            <%- include('comments', {token: token})%>
+        <% } else { %>
+            <%- include('comments')%>
+        <% } %>
+    </div>
+</div>

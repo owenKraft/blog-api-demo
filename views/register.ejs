@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./pieces/head') %>
+    <body>
+        <%- include('./pieces/nav', {user: user})%>
+        <div class="container">
+            <h1>
+                Register
+            </h1>
+            <form action="/register" method="POST">
+                <div class="form-pair">
+
+                    <label for="username">
+                        Username
+                    </label>
+            
+                    <br>
+            
+                    <input name="username" type="text" />
+
+                    <% if (locals.alreadyExists) { %>
+                        <div class="already-exists">That username is already in use.</div>
+                    <% } %>
+                </div>
+        
+                <div class="form-pair">
+                    <label for="password">
+                        Password
+                    </label>
+        
+                    <br>
+        
+                    <input name="password" type="password" />
+                </div>
+        
+                <button class="blue-button">
+                    Register
+                </button>
+            </form>
+        </div>
+    </body>
+</html>

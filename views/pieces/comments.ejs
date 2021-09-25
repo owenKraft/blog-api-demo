@@ -1,0 +1,8 @@
+<div class="comments">
+    <% if (locals.token) { %>
+        <%- include('writeComment', {post: post, token: token})%>
+    <% } %>
+
+    <%- include('commentList', {post: post, comments: comments})%>
+
+</div>

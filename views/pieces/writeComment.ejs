@@ -1,0 +1,17 @@
+<div class="comment-write">
+    <form action="/comments" method="POST">
+        <div class="comment-row">
+            <img class="anon-user-img" src="/images/anonUser.png">
+
+            <textarea name="comment" class="full-width" required></textarea>
+        </div>
+
+        <input type="hidden" name="postId" value="<%= post._id %>">
+
+        <div class="comment-row">
+            <button class="blue-button align-right">
+                Post
+            </button>
+        </div>
+    </form>
+</div>

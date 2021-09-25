@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./pieces/head') %>
+    <body>
+        <%- include('./pieces/nav', {token: token})%>
+
+        <div class="container">
+            <% if (locals.posts.length > 0) { %>
+                <%- include('./pieces/hero-post', {post: posts[0], comments: comments})%>
+            <% } %>
+
+            <% if (locals.posts.length > 1) { %>
+                <% for (let i = 1; i < posts.length; i++) { %>
+                    <%- include('./pieces/index-post', {post: posts[i], comments: comments}) %>
+                <% } %>
+            <% } %>
+        </div>
+
+
+        
+    </body>
+</html>

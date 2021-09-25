@@ -1,0 +1,41 @@
+<nav class="nav">
+    <div class="container">
+
+        <div class="nav-brand">
+            <img class="marcus-small" src='/images/aurelius.png' />
+
+            <h2>
+                <a href="/">Meditations by Marcus Aurelius</a>
+            </h2>
+        </div>
+
+
+        
+        <div class="nav-right">
+            <% if (locals.token){ %>
+                <div class="welcome-back">
+                    Hey <%= token.username %>! 👋
+                </div>
+
+                <% if(locals.token.role == "admin"){ %>
+                    <form action="/posts">
+                        <button class="blue-button">
+                            Create post
+                        </button>
+                    </form>
+                <% } %>
+
+                <a href="/logout">Logout</a>
+            <%} else {%>
+                <a href="/login">Login</a>
+
+                <form action="/register">
+                    <button class="blue-button">
+                        Register
+                    </button>
+                </form>
+            <%}%>
+        </div>
+        
+    </div>
+</nav>

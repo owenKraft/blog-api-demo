@@ -1,0 +1,33 @@
+<a class="post-link" href="/posts/<%= post._id %>">
+    <div class="hero-post">
+
+        <img class="hero-img" src="<%= post.image %>">
+    
+        <div class="hero-text-wrapper">
+            <h1>
+                <%= post.title %>
+            </h1>
+    
+            <p>
+                <%= post.description %>
+            </p>
+    
+            <div class="hero-text-small">
+                <span>
+                    <% if(locals.post.author.publicName) { %>
+                        <%= post.author.publicName %>
+                    <% } else { %>
+                        <%= post.author.username %>
+                    <% } %>
+                </span>
+    
+                <span>
+                    
+                    <svg role="img" width="14" height="20" viewBox="0 0 14 20" fill="none" stroke-width="1" stroke="#000" xmlns="http://www.w3.org/2000/svg" style="height: 20px; width: 14px;"><g><title>Comment</title><path d="M7.47092 13.7982L7.32727 13.6656H7.13176H2.14118C1.22171 13.6656 0.5 12.944 0.5 12.0679V6.09766C0.5 5.22165 1.22171 4.5 2.14118 4.5H11.8588C12.7783 4.5 13.5 5.22165 13.5 6.09766V12.0679C13.5 12.944 12.7783 13.6656 11.8588 13.6656H10.5412H10.0412V14.1656V16.1657C10.0392 16.1649 10.0339 16.1625 10.0255 16.1565L7.47092 13.7982Z" stroke="#999999"></path></g></svg>
+                    <%= comments.filter(comment => comment.post._id.toString() == post._id.toString()).length %>
+                </span>
+            </div>
+        </div>
+    
+    </div>
+</a>

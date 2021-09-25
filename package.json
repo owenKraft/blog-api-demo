@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/owenKraft/blog-api-demo#readme",
   "dependencies": {
+    "@braintree/sanitize-url": "^5.0.2",
     "async": "^3.2.0",
+    "atob": "^2.1.2",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -33,6 +36,7 @@
     "nodemon": "^2.0.12",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
   }
 }

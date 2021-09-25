@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./pieces/head') %>
+    <body>
+        <% if(locals.token) {%>
+            <%- include('./pieces/nav', {token: token})%>
+        <% } else { %>
+            <%- include('./pieces/nav')%>
+        <% } %>
+
+        <div class="container">
+            <% if(locals.errors) { %>
+                <%- include('./pieces/messagePanel', {message: 'Yo this shit broke', type: 'warning'})%>
+            <% } %>
+
+            <% if(!locals.post) { %>
+                Sorry, we couldn't find the post you are looking for
+            <% } else { %>
+
+                <% if(locals.message & locals.messageType) { %>
+                    <%- include('./pieces/messagePanel', {message: message, type: messageType})%>
+                <% } %>
+
+                <h1 class="post-title">
+                    <%= post.title %>
+                </h1>
+
+                <p class="post-description">
+                    <%= post.description %>
+                </p>
+
+                <div class="post-info">
+                    <img class="marcus-small" src='/images/aurelius.png' />
+
+                    <div class="post-author-text">
+                        <div>
+                            <% if(locals.post.author.publicName) { %>
+                                <%= post.author.publicName %>
+                            <% } else { %>
+                                <%= post.author.username %>
+                            <% } %>
+                        </div>
+
+                        <div class="post-details">
+                            <span class="post-timestamp">
+                                <%= post.timestamp %>
+                            </span>
+
+                            <span class="post-comment-count">
+                                <svg role="img" width="14" height="20" viewBox="0 0 14 20" fill="none" stroke-width="1" stroke="#000" xmlns="http://www.w3.org/2000/svg" style="height: 20px; width: 14px;"><g><title>Comment</title><path d="M7.47092 13.7982L7.32727 13.6656H7.13176H2.14118C1.22171 13.6656 0.5 12.944 0.5 12.0679V6.09766C0.5 5.22165 1.22171 4.5 2.14118 4.5H11.8588C12.7783 4.5 13.5 5.22165 13.5 6.09766V12.0679C13.5 12.944 12.7783 13.6656 11.8588 13.6656H10.5412H10.0412V14.1656V16.1657C10.0392 16.1649 10.0339 16.1625 10.0255 16.1565L7.47092 13.7982Z" stroke="#999999"></path></g></svg>
+                                <!-- <span> -->
+                                    <%= comments.length %>
+                                <!-- </span> -->
+                            </span>
+
+                        </div>
+
+                    </div>
+                </div>
+                    
+                <p class="pre-wrap post-body">
+                    <%= post.body %>
+                </p>
+
+
+            <% } %>
+
+            <% if(locals.token.role == "admin"){ %>
+                <form action="/posts/<%= post._id %>/update">
+                    <button class="blue-button edit-post-button">
+                        Edit post
+                    </button>
+                </form>
+            <% } %>
+        </div>
+
+        <% if(locals.token) {%>
+            <%- include('./pieces/anchor', {post: post, comments: comments, token: token})%>
+        <% } else { %>
+            <%- include('./pieces/anchor', {post: post, comments: comments})%>
+        <% } %>
+
+        <%- include('./pieces/footer')%>
+    </body>
+</html>
